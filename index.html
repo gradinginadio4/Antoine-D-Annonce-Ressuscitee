@@ -217,6 +217,14 @@
             color: var(--success);
         }
 
+        .comparison-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--border);
+        }
+
         .comparison-content {
             padding: 2rem;
         }
@@ -241,6 +249,82 @@
             font-weight: 800;
             font-size: 1.5rem;
             color: var(--accent);
+        }
+
+        /* PROPERTY SHOWCASE */
+        .property-section {
+            background: var(--white);
+            padding: 6rem 2rem;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .property-image-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+
+        .property-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .property-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .property-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .property-features li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .property-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.25rem;
         }
 
         /* DÉMOLITION */
@@ -376,6 +460,29 @@
         .gap-section {
             background: var(--white);
             text-align: center;
+        }
+
+        .location-image-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .location-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .location-caption {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .gap-visual {
@@ -619,8 +726,13 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .comparison-grid {
+            .comparison-grid,
+            .property-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .property-image {
+                height: 300px;
             }
             
             .vs-divider {
@@ -652,6 +764,14 @@
 
             .contact-box {
                 padding: 2rem 1.5rem;
+            }
+
+            .location-image {
+                height: 250px;
+            }
+
+            .comparison-image {
+                height: 200px;
             }
         }
 
@@ -706,6 +826,7 @@
                     </svg>
                     Version Actuelle (Invisible)
                 </div>
+                <img src="images/before-screenshot.jpg" alt="Annonce actuelle non optimisée" class="comparison-image">
                 <div class="comparison-content">
                     <h3>"Immeuble mixte à rénover, 159m², Rue Bodenbroek"</h3>
                     <p>Description générique qui noie votre bien dans la masse. Aucun trigger émotionnel. Aucune projection. Le lecteur scanne et passe à l'annonce suivante en 3 secondes. Résultat : 0 appel qualifié par semaine.</p>
@@ -722,10 +843,32 @@
                     </svg>
                     Version Optimisée (Conversion)
                 </div>
+                <img src="images/after-mockup.jpg" alt="Annonce optimisée professionnelle" class="comparison-image">
                 <div class="comparison-content">
                     <h3>"Adresse Prestige Sablon : Immeuble Mixte Historique avec Cour Privative 10m² — Potentiel Suite Parentale 35m²"</h3>
                     <p>Accroche AAA qui stoppe le scroll. Projection immédiate (cour privée = rareté). Volume valorisé (grenier aménageable). Urgence implicite (bâtiment classé = authenticité). Résultat : 3-5 demandes qualifiées/semaine.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPERTY SHOWCASE -->
+    <section class="property-section">
+        <div class="property-grid">
+            <div class="property-image-container">
+                <img src="images/property-facade.jpg" alt="Façade historique Rue Bodenbroek 16" class="property-image">
+                <div class="property-badge">Bâtiment Classé 1833</div>
+            </div>
+            <div class="property-content">
+                <h3>Le Potentiel Caché de Votre Bien</h3>
+                <p>Cette façade néoclassique cache 159m² de possibilités. Rez-de-chaussée commercial indépendant avec accès cour privative — un atout rare dans l'hypercentre bruxellois.</p>
+                <p>Mais sans le bon copywriting, même les plus beaux biens deviennent invisibles. Votre description actuelle ne transmet pas cette valeur.</p>
+                <ul class="property-features">
+                    <li>Entrées séparées commerce / habitation</li>
+                    <li>Cour privative 10m² (rareté Sablon)</li>
+                    <li>Grenier 35m² aménageable</li>
+                    <li>Emplacement AAA entre Grand & Petit Sablon</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -814,6 +957,11 @@
             <span class="section-tag">Le Coût de l'Inaction</span>
             <h2>Ce Que Vous Perdez Actuellement</h2>
             <p class="section-sub">Chaque semaine sans optimisation = des acquéreurs potentiels qui passent à côté</p>
+        </div>
+
+        <div class="location-image-container">
+            <img src="images/sablon-location.jpg" alt="Quartier du Sablon Bruxelles" class="location-image">
+            <div class="location-caption">📍 Emplacement AAA : Entre Grand Sablon et Petit Sablon</div>
         </div>
         
         <div class="gap-visual">
@@ -925,10 +1073,10 @@
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                Je passe à l'action
+                M'écrire : gradi@homieuxmedia.com
             </a>
             
-            <div class="email-display"></div>
+            <div class= </div>
         </div>
         
         <p style="font-size: 0.875rem; opacity: 0.7; margin-top: 2rem;">
